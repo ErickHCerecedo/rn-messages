@@ -7,7 +7,7 @@ const ButtonStandard = props => {
     return (
         <TouchableOpacity
             style = {styles.button__container}
-            activeOpacity = {0.9}
+            activeOpacity = {0.8}
             onPress = {() => props.onPress()}
         >
             <View style = {styles.button__}>
@@ -24,7 +24,8 @@ const ButtonStandard = props => {
 const styles = StyleSheet.create ({
     button__container: {
         width: '100%',
-        height: 80,
+        height: 50,
+        
         backgroundColor: Colors.dodgerblue,
     },
     button__ : {
