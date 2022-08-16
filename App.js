@@ -1,20 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
+
+// Importación de caja de texto de correo y contraseña
+import InputCorreo from './components/InputCorreo';
+import InputContraseña from './components/InputContraseña';
+
+// Importación de botón de inicio de sesión
+import ButtonStandard from './components/ButtonStandard';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image style={styles.image} source={require('./assets/favicon.png')} />
+      <View>
+        <InputCorreo/>
+        <InputContraseña/>
+        <ButtonStandard/>
+      </View>
     </View>
   );
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    padding: '20%',
+    paddingHorizontal: 40,
+  },
+  image: {
+    height: 100,
+    width: 100,
+    margin: 100,
     alignItems: 'center',
-    justifyContent: 'center',
+    marginBottom: 50
   },
 });
