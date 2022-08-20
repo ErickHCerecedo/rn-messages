@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
 
-import { Colors } from '../constants/Default-Styles';
-
 const ContactItem = props => {
     return(
         <TouchableOpacity
@@ -11,7 +9,7 @@ const ContactItem = props => {
             onPress={() => props.onPress()}
         >
             <View style={styles.item__frame}>
-                <Image style={styles.item__Image}></Image>
+                <Image style={styles.item__Image} source={props.source}></Image>
                 <Text style={styles.item__Text}>{props.children}</Text>
             </View>
         </TouchableOpacity>
@@ -25,21 +23,22 @@ const styles = StyleSheet.create({
         //position: 'absolute',
         //left: 0,
         //bottom: 0,
-        backgroundColor: 'pink'
     },
     item__frame: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
+        borderBottomColor: 'rgba(158, 150, 150, .5)',
+        borderBottomWidth: 1,
         width: '100%',
         height: '100%'
     },
     item__Image: {
+        resizeMode: 'contain',
         borderRadius: 20,
         width: 40,
         height: 40,
 
-        backgroundColor: 'orange'
     },
     item__Text: {
         color: 'black',
