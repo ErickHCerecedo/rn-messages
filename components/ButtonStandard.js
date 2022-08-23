@@ -25,7 +25,6 @@ const styles = StyleSheet.create ({
     button__container: {
         width: '100%',
         height: 50,
-        
         backgroundColor: Colors.dodgerblue,
     },
     button__ : {
