@@ -18,7 +18,6 @@ export default StyleSheet.create({
         width: '85%',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: 'green'
     },
 });
 

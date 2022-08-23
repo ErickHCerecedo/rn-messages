@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginBottom: 24,
     marginTop: 20,
-    backgroundColor: 'yellow'
   },
   TextInput: {
     borderWidth: 1,

@@ -31,18 +31,12 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    backgroundColor: 'red'
   },
 
   image: {
     height: 100,
     width: 100,
     alignItems: 'center',
-    backgroundColor: 'purple',
-  },
-  view1: {
-    backgroundColor: 'green',
-    width: '100%'
   }
 });
 
