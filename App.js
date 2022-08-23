@@ -7,15 +7,15 @@ import InputContraseña from './components/InputContraseña';
 // Importación de botón de inicio de sesión
 import ButtonStandard from './components/ButtonStandard';
 
+import ContactItem from './components/ContactItem';
+import MessageControl from './components/MessageControl';
+
+import DefaultStyles from './constants/default-styles';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require('./assets/favicon.png')} />
-      <View>
-        <InputCorreo/>
-        <InputContraseña/>
-        <ButtonStandard/>
-      </View>
+      <Text>Open up App.js to start working on your app!</Text>
     </View>
   );
 }
