@@ -1,4 +1,5 @@
-import { StyleSheet, View, Image } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Image, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 // Importación de caja de texto de correo y contraseña
 import InputCorreo from '../components/InputCorreo';
@@ -12,16 +13,20 @@ import defaultStyles from '../constants/default-styles';
 
 const LoginScreen = props => {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={require('../assets/favicon.png')} />
-      <View style={defaultStyles.section}>
-        <InputCorreo/>
-        <InputContrasena/>
-        <ButtonStandard onPress={() => {}}>
-          INICIAR SESIÓN
-        </ButtonStandard>
-      </View>
-    </View>
+    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}} enabled>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Image style={styles.image} source={require('../assets/favicon.png')} />
+          <View style={defaultStyles.section}>
+            <InputCorreo/>
+            <InputContrasena/>
+            <ButtonStandard onPress={() => {}}>
+              INICIAR SESIÓN
+            </ButtonStandard>
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 

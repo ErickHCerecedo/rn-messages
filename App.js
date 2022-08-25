@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
+// Importacion de pantallas
+import LoginScreen from './screens/LoginScreen';
+import ContactosScreen from './screens/ContactosScreen';
+import ChatScreen from './screens/ChatScreen';
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>rn-messages</Text>
-    </View>
+    <LoginScreen></LoginScreen>
   );
 }
 
