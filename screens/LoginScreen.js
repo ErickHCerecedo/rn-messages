@@ -10,7 +10,7 @@ import ButtonStandard from '../components/ButtonStandard';
 // Importación de default styles
 import defaultStyles from '../constants/default-styles';
 
-export default function login() {
+const LoginScreen = props => {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require('../assets/favicon.png')} />
@@ -40,3 +40,4 @@ const styles = StyleSheet.create({
   }
 });
 
+export default LoginScreen;
