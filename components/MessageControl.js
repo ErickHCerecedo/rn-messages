@@ -11,6 +11,8 @@ const MessageControl = props => {
                 placeholder="Type something cool..."
                 placeholderTextColor="grey"
                 multiline={true}
+                value={props.value}
+                onChangeText={props.onChangeText}
             />
             <TouchableOpacity
                 style = {styles.button__container}
