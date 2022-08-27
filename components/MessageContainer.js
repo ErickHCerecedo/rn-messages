@@ -3,11 +3,9 @@ import { Colors } from "../constants/default-styles";
 
 function MessageContainer(props) {
   return (
-    <View>
-      <Text style = {props.mymessage ? {...styles.MessageContainer, ...styles.MessageContainer_green} : {...styles.MessageContainer, ...styles.MessageContainer_blue}}>
-        {props.children}
-      </Text>
-    </View>
+    <Text style = {props.mymessage ? {...styles.MessageContainer, ...styles.MessageContainer_green} : {...styles.MessageContainer, ...styles.MessageContainer_blue}}>
+      {props.children}
+    </Text>
   );
 }
 

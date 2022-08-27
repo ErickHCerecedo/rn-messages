@@ -18,7 +18,7 @@ const MessageControl = props => {
                 onPress = {() => props.onPress()}
             >
                 <View style = {styles.button__}>
-                    <Ionicons name={props.icon} size={20} color={'white'} />
+                    <Ionicons name={'send'} size={20} color={'white'} />
                 </View>
             </TouchableOpacity>
         </View>
