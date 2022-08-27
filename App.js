@@ -3,12 +3,12 @@ import { StyleSheet, View, Text } from 'react-native';
 
 // Importacion de pantallas
 import LoginScreen from './screens/LoginScreen';
-import ContactosScreen from './screens/ContactosScreen';
+import ContactosScreen from './screens/ContactsScreen';
 import ChatScreen from './screens/ChatScreen';
 
 export default function App() {
   return (
-    <LoginScreen></LoginScreen>
+    <ChatScreen></ChatScreen>
   );
 }
 
