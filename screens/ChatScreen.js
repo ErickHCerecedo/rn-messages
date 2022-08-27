@@ -29,7 +29,7 @@ const ChatScreen = (props) => {
   // Datos dummy
   const [mensajes, setMensajes] = useState(DATA);
 
-  const [mensaje, setMensaje] = useState('Hola');
+  const [mensaje, setMensaje] = useState('');
 
   const renderItem = (itemdata) => {
     return (
@@ -41,16 +41,16 @@ const ChatScreen = (props) => {
     );
   };
 
-  const enviar = () => {console.log(mensaje);
+  const enviar = () => {
     setMensajes (previo => [{mensaje: mensaje, id: Math.random().toString(), escritor: true},...previo]);
-  //  setMensajes({mensaje: mensaje, id: Math.random().toString()});
+    setMensaje ('')
   }
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}} enabled>
       <View style={styles.container}>
         <FlatList
-          style={{ width: "100%"}}
+          style={{ width: "100%", marginTop: '10%'}}
           data={mensajes}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
