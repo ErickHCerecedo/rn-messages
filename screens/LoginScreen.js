@@ -20,7 +20,7 @@ const LoginScreen = props => {
           <View style={defaultStyles.section}>
             <InputCorreo/>
             <InputContrasena/>
-            <ButtonStandard onPress={() => {}}>
+            <ButtonStandard onPress={() => {props.navigation.navigate({name: 'Contacts'})}}>
               INICIAR SESIÓN
             </ButtonStandard>
           </View>

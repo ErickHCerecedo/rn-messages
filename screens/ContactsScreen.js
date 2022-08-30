@@ -27,8 +27,8 @@ const ContactsScreen = (props) => {
   const renderItem = (itemdata) => {
     return (
       <View style={{ ...defaultStyles.section, alignSelf: "center" }}>
-        <ContactItem source={{ uri: itemdata.item.image }}>
-          {itemdata.item.nombre}
+        <ContactItem source={{ uri: itemdata.item.image }} onPress={() => {props.navigation.navigate({name: 'Chat', params:{contactname: itemdata.item.nombre}})}}>
+          {itemdata.item.nombre} 
         </ContactItem>
       </View>
     );

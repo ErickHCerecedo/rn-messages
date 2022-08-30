@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         minHeight: 40,
         height: 'auto',
         maxHeight: 100,
+        paddingTop: 11,
         paddingLeft: 15,
         paddingRight: 15,
 

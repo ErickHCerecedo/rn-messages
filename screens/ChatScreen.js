@@ -50,7 +50,7 @@ const ChatScreen = (props) => {
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}} enabled>
       <View style={styles.container}>
         <FlatList
-          style={{ width: "100%", marginTop: '10%'}}
+          style={{ width: "100%"}}
           data={mensajes}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
