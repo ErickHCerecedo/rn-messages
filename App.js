@@ -1,19 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
+// Importacion de App Navigator
+import AppNavigator from './navigation/AppNavigator';
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>rn-messages</Text>
-    </View>
+    <AppNavigator></AppNavigator>
   );
 }
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: '20%',
-    paddingHorizontal: 40,
-  },
-});

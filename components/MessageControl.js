@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, TextInput, TouchableOpacity,  } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { Colors } from "../constants/default-styles";
 
 const MessageControl = props => {
     return(
@@ -11,6 +12,8 @@ const MessageControl = props => {
                 placeholder="Type something cool..."
                 placeholderTextColor="grey"
                 multiline={true}
+                value={props.value}
+                onChangeText={props.onChangeText}
             />
             <TouchableOpacity
                 style = {styles.button__container}
@@ -18,7 +21,7 @@ const MessageControl = props => {
                 onPress = {() => props.onPress()}
             >
                 <View style = {styles.button__}>
-                    <Ionicons name={props.icon} size={20} color={'white'} />
+                    <Ionicons name={'send'} size={20} color={'white'} />
                 </View>
             </TouchableOpacity>
         </View>
@@ -38,19 +41,17 @@ const styles = StyleSheet.create({
         minHeight: 40,
         height: 'auto',
         maxHeight: 100,
+        paddingTop: 11,
         paddingLeft: 15,
         paddingRight: 15,
-
         borderRadius: 20,
-
         backgroundColor: "gainsboro",
     }, 
     button__container: {
         width: 40,
         height: 40,
         borderRadius: 20,
-
-        backgroundColor: 'lightseagreen',
+        backgroundColor: Colors.dodgerblue,
     },
     button__: {
         width: '100%',
