@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, TextInput, TouchableOpacity,  } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { Colors } from "../constants/default-styles";
 
 const MessageControl = props => {
     return(
@@ -43,17 +44,14 @@ const styles = StyleSheet.create({
         paddingTop: 11,
         paddingLeft: 15,
         paddingRight: 15,
-
         borderRadius: 20,
-
         backgroundColor: "gainsboro",
     }, 
     button__container: {
         width: 40,
         height: 40,
         borderRadius: 20,
-
-        backgroundColor: 'lightseagreen',
+        backgroundColor: Colors.dodgerblue,
     },
     button__: {
         width: '100%',

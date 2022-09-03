@@ -15,7 +15,7 @@ export default StyleSheet.create({
         paddingBottom: 36,
     },
     section:{
-        width: '85%',
+        width: '90%',
         justifyContent: 'space-between',
         alignItems: 'center',
     },

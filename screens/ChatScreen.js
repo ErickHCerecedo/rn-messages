@@ -47,7 +47,7 @@ const ChatScreen = (props) => {
   }
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}} enabled>
+    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}} enabled keyboardVerticalOffset={72}>
       <View style={styles.container}>
         <FlatList
           style={{ width: "100%"}}
@@ -57,9 +57,9 @@ const ChatScreen = (props) => {
           numColumns={1}
           inverted={true}
           />
-          <View style={Platform.OS === "ios" ? {marginBottom: 25, ...styles.footer} : {...styles.footer}}>
+        <View style={Platform.OS === "ios" ? {marginBottom: 18, ...styles.footer} : {...styles.footer}}>
           <MessageControl value={mensaje} onChangeText={setMensaje} onPress={() => {enviar()}}></MessageControl>
-          </View>
+        </View>
       </View>
     </KeyboardAvoidingView>
   );
@@ -69,10 +69,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    backgroundColor: 'white'
   },
   footer: {
-    width: '90%',
-    alignSelf: 'center'
+    width: '100%',
+    alignSelf: 'center',
+    backgroundColor: 'white',
+    paddingVertical: 8,
+    paddingHorizontal: '5%',
+    //Shadow
+    shadowColor: '#171717',
+    shadowRadius: 10,
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 0, height: -4}
   }
 });
 
