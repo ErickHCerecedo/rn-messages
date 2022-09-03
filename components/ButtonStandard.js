@@ -23,9 +23,10 @@ const ButtonStandard = props => {
 
 const styles = StyleSheet.create ({
     button__container: {
-        width: '100%',
+        width: '70%',
         height: 50,
-        backgroundColor: Colors.dodgerblue,
+        borderRadius: 25,
+        backgroundColor: 'white',
     },
     button__ : {
         flexDirection: 'row',
@@ -35,11 +36,11 @@ const styles = StyleSheet.create ({
         height: '100%'
     },
     button__text: {
-        color: 'white',
+        color: Colors.dodgerblue,
         textTransform: 'uppercase',
         letterSpacing: 1,
-        marginLeft: 10,
-        fontSize: 20,
+        fontSize: 16,
+        fontWeight: '600'
     }
 });
 
