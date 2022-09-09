@@ -4,7 +4,7 @@ import { getDatabase, ref, serverTimestamp, onChildAdded, push, off } from "fire
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth/react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-class Fire{
+class Firebase{
     
     static app;
     static auth;
@@ -14,7 +14,8 @@ class Fire{
         this.checkAuth();
     }
 
-    init = () => {
+    init = () => { 
+        console.log('Ejecutando funcion init');
         if (getApps().length === 0) {
             this.app = initializeApp({
                 apiKey: "AIzaSyB3GqQeJecF-MboPfoSoTR1aWJ16lwhuec",
@@ -29,6 +30,7 @@ class Fire{
     };
 
     checkAuth = () => {
+        console.log('Ejecutando función checkAuth');
         this.auth = initializeAuth(this.app, {
             persistence: getReactNativePersistence(AsyncStorage)
         });
@@ -40,18 +42,23 @@ class Fire{
         });
     };
 
-    send = messages => {
+    send = messages => { 
+        console.log('Función send');
+        console.log(messages);
         messages.forEach(item => {
             const message = {
                 text: item.text,
                 timestamp: serverTimestamp(),
                 user: item.user,
             }
+            console.log(message);
             push(this.db, message);
         });
     }
 
     parse = message => {
+        console.log('mensajes cargados', message);
+        
         const { user, text, timestamp } = message.val();
         const { key: _id } = message;
         const createdAt = new Date(timestamp);
@@ -66,6 +73,7 @@ class Fire{
 
     get = callback => {
         onChildAdded(this.db, snapshot => {
+            console.log('snapshot', snapshot);
             callback(this.parse(snapshot));
         });
     }
@@ -85,4 +93,4 @@ class Fire{
  
 }
 
-export default new Fire();
+export default new Firebase();

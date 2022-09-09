@@ -1,7 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { StyleSheet, View, FlatList, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from "react-native";
 import defaultStyles from "../constants/default-styles";
 
+// Importación de firebase
+import Firebase from "../firebase/firebase";
 
 // Importación de componentes
 import MessageContainer from "../components/MessageContainer";
@@ -27,9 +29,16 @@ const DATA = (props) => [
 
 const ChatScreen = (props) => {
   // Datos dummy
-  const [mensajes, setMensajes] = useState(DATA);
+  const [mensajes, setMensajes] = useState([]);
 
   const [mensaje, setMensaje] = useState('');
+
+  useEffect(() => {
+    Firebase.get(message => {
+      console.log('Mensajes impresos',message);
+      this.setMensajes(Mensajesprevios => [{message: messege.text, id: message.user._id, escritor: message.user.name === props.route.params.username ? true : false}, ...Mensajesprevios]);
+    });
+  });
 
   const renderItem = (itemdata) => {
     return (
@@ -46,6 +55,14 @@ const ChatScreen = (props) => {
     setMensaje ('')
   }
 
+  const user = props => {
+    return{
+      _id: Firebase.uid,
+      name: props.route.params.username
+    }
+  } 
+//  console.log('props');
+  //console.log(props);
   return (
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}} enabled keyboardVerticalOffset={72}>
       <View style={styles.container}>
@@ -58,7 +75,7 @@ const ChatScreen = (props) => {
           inverted={true}
           />
         <View style={Platform.OS === "ios" ? {marginBottom: 18, ...styles.footer} : {...styles.footer}}>
-          <MessageControl value={mensaje} onChangeText={setMensaje} onPress={() => {enviar()}}></MessageControl>
+          <MessageControl value={mensaje} onChangeText={setMensaje} onPress={() => {Firebase.send([{text: mensaje, user: user(props)}])}}></MessageControl>
         </View>
       </View>
     </KeyboardAvoidingView>

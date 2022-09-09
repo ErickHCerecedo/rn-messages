@@ -24,15 +24,20 @@ const ContactsScreen = (props) => {
       image: "https://placeimg.com/100/100/any",
     },
   ]);
+
+//  console.log('props');
+//  console.log(props);
+
   const renderItem = (itemdata) => {
     return (
       <View style={{ ...defaultStyles.section, alignSelf: "center" }}>
-        <ContactItem source={{ uri: itemdata.item.image }} onPress={() => {props.navigation.navigate({name: 'Chat', params:{contactname: itemdata.item.nombre}})}}>
+        <ContactItem source={{ uri: itemdata.item.image }} onPress={() => {props.navigation.navigate({name: 'Chat', params:{contactname: itemdata.item.nombre, username: props.route.params.username}})}}>
           {itemdata.item.nombre} 
         </ContactItem>
       </View>
     );
   };
+
   return (
     <View style={styles.container}>
       <FlatList

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View, Image, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -14,6 +14,9 @@ import defaultStyles from '../constants/default-styles';
 import { Colors } from '../constants/default-styles';
 
 const LoginScreen = props => {
+
+  const [username,setUsername] = useState('');
+
   return (
     <LinearGradient style={styles.background} colors={['#74b7f7','#5fabf5', '#3f9ffc', Colors.dodgerblue, '#0554a1']} >
       <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}} enabled>
@@ -21,9 +24,9 @@ const LoginScreen = props => {
           <View style={styles.container}>
               <Image style={styles.image} source={require('../assets/logo.png')} />
               <View style={defaultStyles.section}>
-                <InputCorreo/>
+                <InputCorreo value={username} onChangeText={setUsername}/>
                 <InputContrasena/>
-                <ButtonStandard onPress={() => {props.navigation.navigate({name: 'Contacts'})}}>
+                <ButtonStandard onPress={() => {props.navigation.navigate({name: 'Contacts', params:{username: username}})}}>
                   INICIAR SESIÓN
                 </ButtonStandard>
               </View>

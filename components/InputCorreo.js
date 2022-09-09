@@ -8,6 +8,8 @@ function InputCorreo (props) {
           style = {styles.TextInput} 
           placeholder='Correo'
           placeholderTextColor={'white'}
+          value={props.value}
+          onChangeText={props.onChangeText}
       />
     </View>
   )
