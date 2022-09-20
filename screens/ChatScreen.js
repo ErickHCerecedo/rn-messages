@@ -34,17 +34,29 @@ const ChatScreen = (props) => {
   const [mensaje, setMensaje] = useState('');
 
   useEffect(() => {
+    console.log('AMZN');
+
     Firebase.get(message => {
       console.log('Mensajes impresos',message);
-      this.setMensajes(Mensajesprevios => [{message: messege.text, id: message.user._id, escritor: message.user.name === props.route.params.username ? true : false}, ...Mensajesprevios]);
+      const mensajeauxiliar = {
+        message: message.text, id: message._id, escritor: message.user.name === props.route.params.username ? true : false
+      }
+      setMensajes(mensajes.concat(mensajeauxiliar));
+      console.log(mensajes);
     });
-  });
+
+    return () => {
+      Firebase.off()
+    };
+
+  }, []);
 
   const renderItem = (itemdata) => {
+    console.log('itemdata', itemdata);
     return (
       <View style={{ ...defaultStyles.section, alignSelf: "center" }}>
         <MessageContainer mymessage={itemdata.item.escritor}>
-          {itemdata.item.mensaje}
+          {itemdata.item.message}
         </MessageContainer>
       </View>
     );

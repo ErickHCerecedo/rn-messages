@@ -57,7 +57,7 @@ class Firebase{
     }
 
     parse = message => {
-        console.log('mensajes cargados', message);
+        //console.log('mensajes cargados', message);
         
         const { user, text, timestamp } = message.val();
         const { key: _id } = message;
@@ -73,7 +73,7 @@ class Firebase{
 
     get = callback => {
         onChildAdded(this.db, snapshot => {
-            console.log('snapshot', snapshot);
+            //console.log('snapshot', snapshot);
             callback(this.parse(snapshot));
         });
     }

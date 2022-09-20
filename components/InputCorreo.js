@@ -6,7 +6,7 @@ function InputCorreo (props) {
     <View style={styles.inputContainer}>
       <TextInput 
           style = {styles.TextInput} 
-          placeholder='Correo'
+          placeholder='Usuario'
           placeholderTextColor={'white'}
           value={props.value}
           onChangeText={props.onChangeText}
